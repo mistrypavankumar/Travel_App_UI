@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/screens/discorver_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -87,7 +88,73 @@ class _HomeScreenState extends State<HomeScreen> {
                             )
                           ),
 
-                          child: Image.asset('./assets/nature.png'),
+                          child: Column(
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.all(40),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(20)
+                                  ),
+                                  color: Colors.red,
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 0, horizontal:0),
+                                  child: Image.asset('./assets/nature.png'),
+                                ),
+                              ),
+
+                  ///---->   Button and skip  ----> ////
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical:70.0),
+                                child: RaisedButton(
+                                  onPressed: () =>{
+                                   Navigator.push(
+                                     context,
+                                     MaterialPageRoute(
+                                       builder: (context) => DiscoverScreen()), 
+                                   )
+                                  },
+                                  color: Colors.white,
+                                   shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(20),
+                                    ),),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 25),
+                                    child: Icon(Icons.keyboard_arrow_right,
+                                    size: 30,
+                                    ),
+                                  ),
+                                  ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 60.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () =>{
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => DiscoverScreen()), 
+                                   ),
+                                  },
+                                      child: Text("Skip",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                      ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                ///---->   Button and skip (End) ----> ////
+                
+                            ],
+                          ),
                         ),
                       )
                     ],
